@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ThreeJS Hologram Test</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body style="background:#070D18; margin:0; display:flex; justify-content:center; align-items:center; height:100vh;">
+  <div id="hologram-container" style="width:500px; height:240px; border:1px solid #00c2ff;"></div>
+
+  <script>
+    const container = document.getElementById('hologram-container');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+    camera.position.set(4, 2.5, 4.5);
+    camera.lookAt(0, 0, 0);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+
+    // Floor Grid / Hologram Platform
+    const grid = new THREE.GridHelper(5, 10, 0x00c2ff, 0x112844);
+    grid.position.y = -0.6;
+    scene.add(grid);
+
+    // Group for the rotating vehicle
+    const vehicleGroup = new THREE.Group();
+    scene.add(vehicleGroup);
+
+    // Hologram Wireframe Material
+    const wireMatOrange = new THREE.MeshBasicMaterial({
+      color: 0xff5a00,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.85
+    });
+
+    const glowMatCyan = new THREE.MeshBasicMaterial({
+      color: 0x00c2ff,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.7
+    });
+
+    // Create 3D Holographic Car
+    function buildCar() {
+      const car = new THREE.Group();
+      
+      // Main Chassis
+      const bodyGeo = new THREE.BoxGeometry(2.4, 0.45, 1.1);
+      const bodyMesh = new THREE.Mesh(bodyGeo, wireMatOrange);
+      bodyMesh.position.y = 0;
+      car.add(bodyMesh);
+
+      // Cabin / Roof
+      const cabinGeo = new THREE.BoxGeometry(1.2, 0.4, 0.95);
+      const cabinMesh = new THREE.Mesh(cabinGeo, glowMatCyan);
+      cabinMesh.position.set(-0.1, 0.4, 0);
+      car.add(cabinMesh);
+
+      // Wheels
+      const wheelGeo = new THREE.CylinderGeometry(0.28, 0.28, 0.2, 12);
+      const wheelPositions = [
+        [0.75, -0.25, 0.55],
+        [0.75, -0.25, -0.55],
+        [-0.75, -0.25, 0.55],
+        [-0.75, -0.25, -0.55]
+      ];
+
+      wheelPositions.forEach(pos => {
+        const wheel = new THREE.Mesh(wheelGeo, glowMatCyan);
+        wheel.rotation.x = Math.PI / 2;
+        wheel.position.set(...pos);
+        car.add(wheel);
+      });
+
+      return car;
+    }
+
+    vehicleGroup.add(buildCar());
+
+    // Animation Loop
+    function animate() {
+      requestAnimationFrame(animate);
+      vehicleGroup.rotation.y += 0.015;
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+</body>
+</html>

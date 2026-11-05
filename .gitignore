@@ -1,0 +1,16 @@
+# Binarios y ejecutables
+cloudflared.exe
+*.exe
+
+# Vercel
+.vercel
+
+# Logs y temporales
+*.log
+_temp*
+__pycache__/
+*.pyc
+
+# Sistema
+.DS_Store
+Thumbs.db

@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Makipura World | Operador Logístico Internacional y Aduanas en Perú</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: {
+              DEFAULT: '#001A72',
+              dark: '#00124a',
+              deep: '#08111D',
+              card: '#0B192C',
+              surface: '#0f233d'
+            },
+            brandOrange: {
+              DEFAULT: '#FF5A00',
+              hover: '#e05000',
+              glow: 'rgba(255, 90, 0, 0.25)'
+            },
+            techCyan: {
+              DEFAULT: '#00E5FF',
+              dim: '#38bdf8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP & ScrollTrigger for Sunbousai-style Storytelling -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  
+  <style>
+    /* Estética Japonesa Técnica: Blueprint + Grid sutil */
+    .bg-blueprint {
+      background-color: #F4F5F7;
+      background-image: 
+        linear-gradient(to right, rgba(0, 26, 114, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 26, 114, 0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    
+    .bg-blueprint-dark {
+      background-color: #08111D;
+      background-image: 
+        linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Placeholders grises para ilustraciones (Listos para reemplazo posterior) */
+    .img-placeholder {
+      background-color: #E2E8F0;
+      border: 2px dashed #94A3B8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #64748B;
+      font-size: 0.7rem;
+      font-family: ui-monospace, monospace;
+      text-transform: uppercase;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .img-placeholder:hover {
+      border-color: #FF5A00;
+      color: #001A72;
+    }
+
+    .img-placeholder-dark {
+      background-color: #0F1D2E;
+      border: 2px dashed #334155;
+      color: #94A3B8;
+    }
+    .img-placeholder-dark:hover {
+      border-color: #00E5FF;
+      color: #38bdf8;
+    }
+
+    /* Indicador de Pin interactivo (Estilo Sunbousai) */
+    .sun-pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .sun-pin-pulse {
+      animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.4); opacity: 0; }
+      100% { transform: scale(0.95); opacity: 0; }
+    }
+
+
+    /* Text Reveal Masks (Estilo Sunbousai) */
+    .txt-reveal-wrap {
+      overflow: hidden;
+    }
+    .txt-reveal-item {
+      transform: translateY(110%);
+      opacity: 0;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+    }
+    .txt-reveal-item.is-visible {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+
+    /* Línea de capítulo vertical (sidebar) */
+    .chapter-indicator {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+  </style>
+</head>
+<body class="bg-blueprint text-slate-800 font-sans antialiased selection:bg-[#FF5A00] selection:text-white">
+
+
+
+  <!-- NAVEGACIÓN LATERAL FLOTANTE (ESTILO JAPONÉS: CAPÍTULOS POR SCROLL) -->
+  <aside class="hidden xl:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col items-center gap-3 bg-[#08111D]/80 backdrop-blur-md border border-blue-900/60 p-2.5 rounded-full shadow-2xl">
+    <a href="#hero" class="nav-dot group relative p-1.5 rounded-full text-slate-400 hover:text-[#FF5A00] transition-colors" data-target="hero" title="Inicio">
+      <span class="block w-2.5 h-2.5 rounded-full bg-slate-600 group-hover:bg-[#FF5A00] transition-all"></span>
+      <span class="absolute right-8 top-1/2 -translate-y-1/2 bg-[#001A72] text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">01 // INICIO</span>
+    </a>
+    <a href="#travesia" class="nav-dot group relative p-1.5 rounded-full text-slate-400 hover:text-[#FF5A00] transition-colors" data-target="travesia" title="La Travesía">
+      <span class="block w-2.5 h-2.5 rounded-full bg-slate-600 group-hover:bg-[#FF5A00] transition-all"></span>
+      <span class="absolute right-8 top-1/2 -translate-y-1/2 bg-[#001A72] text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">02 // LA TRAVESÍA</span>
+    </a>
+    <a href="#simulador" class="nav-dot group relative p-1.5 rounded-full text-slate-400 hover:text-[#FF5A00] transition-colors" data-target="simulador" title="Simulador">
+      <span class="block w-2.5 h-2.5 rounded-full bg-slate-600 group-hover:bg-[#FF5A00] transition-all"></span>
+      <span class="absolute right-8 top-1/2 -translate-y-1/2 bg-[#001A72] text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">03 // SIMULADOR</span>
+    </a>
+    <a href="#diferencial" class="nav-dot group relative p-1.5 rounded-full text-slate-400 hover:text-[#FF5A00] transition-colors" data-target="diferencial" title="Por qué Makipura">
+      <span class="block w-2.5 h-2.5 rounded-full bg-slate-600 group-hover:bg-[#FF5A00] transition-all"></span>
+      <span class="absolute right-8 top-1/2 -translate-y-1/2 bg-[#001A72] text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">04 // VENTAJA</span>
+    </a>
+    <a href="#servicios" class="nav-dot group relative p-1.5 rounded-full text-slate-400 hover:text-[#FF5A00] transition-colors" data-target="servicios" title="Servicios">
+      <span class="block w-2.5 h-2.5 rounded-full bg-slate-600 group-hover:bg-[#FF5A00] transition-all"></span>
+      <span class="absolute right-8 top-1/2 -translate-y-1/2 bg-[#001A72] text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">05 // SERVICIOS</span>
+    </a>
+    <a href="#cotizador" class="nav-dot group relative p-1.5 rounded-full text-slate-400 hover:text-[#FF5A00] transition-colors" data-target="cotizador" title="Cotizar">
+      <span class="block w-2.5 h-2.5 rounded-full bg-slate-600 group-hover:bg-[#FF5A00] transition-all"></span>
+      <span class="absolute right-8 top-1/2 -translate-y-1/2 bg-[#001A72] text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded shadow opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">06 // COTIZAR</span>
+    </a>
+  </aside>
+
+  <!-- NAVBAR STICKY CON BLUR -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand & Isotipo Placeholder -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl img-placeholder border-slate-300 group-hover:border-[#FF5A00]">
+          <i data-lucide="image" class="w-4 h-4 mb-0.5"></i>
+          <span class="text-[8px] font-bold">LOGO</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-2xl font-black tracking-wider text-[#001A72] flex items-center gap-1 group-hover:opacity-95 transition-opacity">
+            MAKI<span class="text-[#FF5A00]">PURA</span>
+          </span>
+          <span class="text-[10px] tracking-[0.3em] font-bold text-slate-500 uppercase -mt-1 font-mono">World Logística</span>
+        </div>
+      </a>
+      
+      <!-- Navegación Principal -->
+      <nav class="hidden lg:flex items-center gap-7 font-medium text-sm text-slate-600">
+        <a href="#travesia" class="hover:text-[#001A72] transition-colors flex items-center gap-1">
+          <span class="text-[#FF5A00] text-xs font-mono">01.</span> La Travesía
+        </a>
+        <a href="#simulador" class="text-[#FF5A00] font-semibold hover:text-[#e05000] flex items-center gap-1.5 transition-colors">
+          <span class="text-xs font-mono">02.</span>
+          <i data-lucide="sliders" class="w-4 h-4"></i>
+          Simulador &amp; Tributos
+        </a>
+        <a href="#diferencial" class="hover:text-[#001A72] transition-colors">
+          <span class="text-[#FF5A00] text-xs font-mono">03.</span> Por qué Makipura
+        </a>
+        <a href="#servicios" class="hover:text-[#001A72] transition-colors">
+          <span class="text-[#FF5A00] text-xs font-mono">04.</span> Soluciones
+        </a>
+        <a href="#faq" class="hover:text-[#001A72] transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Botones CTA -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="https://wa.me/51999999999?text=Hola%20Makipura,%20necesito%20asesoría%20para%20importar%20carga%20al%20Perú." 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="flex items-center gap-2 bg-[#FF5A00] hover:bg-[#e05000] text-white px-4 py-2.5 rounded-xl font-semibold text-sm shadow-md shadow-orange-500/20 transition-all transform hover:-translate-y-0.5">
+          <i data-lucide="message-square" class="w-4 h-4"></i>
+          <span>WhatsApp Directo</span>
+        </a>
+        <a href="#cotizador" class="bg-[#001A72] hover:bg-[#00124a] text-white px-5 py-2.5 rounded-xl font-semibold text-sm shadow-md shadow-blue-900/20 transition-all">
+          Cotizar Carga
+        </a>
+      </div>
+
+      <!-- Burger Mobile -->
+      <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Abrir menú">
+        <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+        <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+      </button>
+
+    </div>
+
+    <!-- Menú Desplegable Mobile -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white px-5 pt-4 pb-6 space-y-3">
+      <a href="#travesia" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-[#001A72]">01. La Travesía de tu Carga</a>
+      <a href="#simulador" onclick="toggleMobileMenu()" class="block py-2 text-[#FF5A00] font-semibold">02. Simulador &amp; Tributos SUNAT</a>
+      <a href="#diferencial" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-[#001A72]">03. Por qué Makipura</a>
+      <a href="#servicios" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-[#001A72]">04. Soluciones Integrales</a>
+      <a href="#faq" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-[#001A72]">Preguntas Frecuentes</a>
+      
+      <div class="pt-4 space-y-2 border-t border-slate-100">
+        <a href="https://wa.me/51999999999?text=Hola%20Makipura,%20necesito%20asesoría%20para%20importar%20carga%20al%20Perú." 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="w-full flex items-center justify-center gap-2 bg-[#FF5A00] text-white px-4 py-3 rounded-xl font-semibold text-sm">
+          <i data-lucide="message-square" class="w-4 h-4"></i>
+          WhatsApp Directo
+        </a>
+        <a href="#cotizador" onclick="toggleMobileMenu()" class="w-full flex items-center justify-center bg-[#001A72] text-white px-4 py-3 rounded-xl font-semibold text-sm">
+          Cotizar Carga
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION CON EFECTOS DE NARRATIVA -->
+  <section id="hero" class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Texto Hero con Animación Stagger -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#001A72] text-xs font-bold font-mono tracking-wide uppercase">
+            <span class="w-2 h-2 rounded-full bg-[#FF5A00]"></span>
+            SUNAT D.Leg 1053 • Despacho Anticipado • Callao &amp; Chancay
+          </div>
+          
+          <div class="space-y-2">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-[#001A72] tracking-tight leading-[1.08]">
+              Trae tu carga del mundo al Perú <span class="text-[#FF5A00]">sin sorpresas ni sobrecostos.</span>
+            </h1>
+          </div>
+          
+          <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            Transporte internacional marítimo, aéreo y terrestre integrado con nacionalización aduanera. 
+            <strong class="text-slate-800 font-semibold">Dirigido por ex-gerentes de compras y logística: conocemos el dolor de un contenedor demorado y blindamos tu margen financiero.</strong>
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
+            <a href="#simulador" class="w-full sm:w-auto bg-[#FF5A00] hover:bg-[#e05000] text-white px-8 py-4 rounded-xl font-bold text-base shadow-xl shadow-orange-500/25 flex items-center justify-center gap-3 transition-all transform hover:-translate-y-0.5">
+              <i data-lucide="sliders" class="w-5 h-5"></i>
+              Simular Carga y Tributos
+            </a>
+            <a href="#travesia" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-[#001A72] border-2 border-[#001A72]/20 px-8 py-3.5 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all">
+              <i data-lucide="compass" class="w-5 h-5 text-[#FF5A00]"></i>
+              Ver Cómo Funciona la Ruta
+            </a>
+          </div>
+
+          <!-- Badges de Autoridad -->
+          <div class="pt-8 grid grid-cols-3 gap-4 border-t border-slate-200/80">
+            <div class="space-y-1">
+              <p class="text-2xl sm:text-3xl font-black text-[#001A72] font-mono">48h</p>
+              <p class="text-xs text-slate-500 font-medium">Levante Anticipado SUNAT</p>
+            </div>
+            <div class="space-y-1">
+              <p class="text-2xl sm:text-3xl font-black text-[#FF5A00] font-mono">100%</p>
+              <p class="text-xs text-slate-500 font-medium">Costos Transparentes All-In</p>
+            </div>
+            <div class="space-y-1">
+              <p class="text-2xl sm:text-3xl font-black text-[#001A72] font-mono">Global</p>
+              <p class="text-xs text-slate-500 font-medium">Red de Agentes en Origen</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Tarjeta Blueprint + Placeholder de Ilustración Hero -->
+        <div class="lg:col-span-5 space-y-4">
+          
+          <!-- Cuadro Gris Placeholder Hero -->
+          <div class="w-full h-48 rounded-2xl img-placeholder shadow-sm">
+            <i data-lucide="image" class="w-8 h-8 mb-2 opacity-40"></i>
+            <span class="font-bold text-xs">[ ILUSTRACIÓN: OPERACIONES PORTUARIAS CALLAO / CHANCAY ]</span>
+            <span class="text-[10px] text-slate-400 mt-1">Estructura preparada para imagen/SVG</span>
+          </div>
+
+          <!-- Tarjeta Técnica Makipura -->
+          <div class="bg-[#001A72] p-7 rounded-3xl shadow-2xl relative border border-blue-900 text-white overflow-hidden">
+            <div class="relative z-10 space-y-5">
+              <div class="flex items-center justify-between border-b border-blue-800 pb-3">
+                <span class="text-xs font-mono text-cyan-400 tracking-wider">PROTOCOLO DE CONTROL MAKIPURA</span>
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#FF5A00] text-white">VIGENTE</span>
+              </div>
+
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <div class="p-2 rounded-lg bg-blue-900/80 text-[#FF5A00] border border-blue-700 shrink-0">
+                    <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-sm">Auditoría Pre-Embarque en Origen</h3>
+                    <p class="text-xs text-slate-300 mt-0.5">Revisamos factura, packing list y partidas antes de zarpar para prevenir multas y canal rojo.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="p-2 rounded-lg bg-blue-900/80 text-[#FF5A00] border border-blue-700 shrink-0">
+                    <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-sm">Cero Gastos Ocultos en Destino</h3>
+                    <p class="text-xs text-slate-300 mt-0.5">Sin sobreestadías inesperadas (*demurrage*) ni cargos locales ficticios en Callao o Chancay.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="p-2 rounded-lg bg-blue-900/80 text-[#FF5A00] border border-blue-700 shrink-0">
+                    <i data-lucide="calculator" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-sm">Pre-Liquidación Tributaria</h3>
+                    <p class="text-xs text-slate-300 mt-0.5">Calculamos Ad-Valorem, IGV, IPM y Percepción para proteger la liquidez de tu empresa.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <a href="#simulador" class="w-full bg-[#FF5A00] hover:bg-[#e05000] text-white py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg">
+                  Configurar mi Carga Aquí
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECCIÓN NARRATIVA GUIADA POR SCROLL: "LA TRAVESÍA DE TU CARGA" (SUNBOUSAI-STYLE) -->
+  <!-- ========================================================================= -->
+  <section id="travesia" class="relative bg-blueprint-dark text-white border-y border-blue-950 py-24 overflow-hidden">
+    
+    <!-- Encabezado de la historia -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/60 text-cyan-400 text-xs font-mono uppercase">
+        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#FF5A00]"></i>
+        <span>NARRATIVA OPERATIVA PASO A PASO</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+        El viaje de tu mercancía: <span class="text-[#FF5A00]">Del proveedor a tu almacén</span>
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
+        A diferencia de otros operadores que te dejan a ciegas en alta mar, así estructuramos cada milla náutica y aérea para que nunca pagues un dólar de más.
+      </p>
+    </div>
+
+    <!-- Pinned Interactive Storyboard Container -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Timeline visual interactiva con 4 hitos (Puntos clave) -->
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Columna Izquierda: Escenario Visual con Pines Dinámicos y Placeholder -->
+        <div class="lg:col-span-7 sticky top-28 bg-[#0B192C] border border-blue-900/60 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden space-y-6">
+          
+          <div class="flex items-center justify-between border-b border-blue-800/80 pb-3">
+            <span class="text-xs font-mono text-cyan-400 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              RADAR DE RUTA TRANS-PACÍFICA / CONTINENTAL
+            </span>
+            <span id="story-step-badge" class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#FF5A00] text-white">
+              FASE 01: ORIGEN
+            </span>
+          </div>
+
+          <!-- Cuadro Gris Placeholder para Ilustración Central de la Travesía -->
+          <div class="relative w-full h-64 sm:h-80 rounded-2xl img-placeholder img-placeholder-dark flex items-center justify-center">
+            
+            <!-- Pines Dinámicos estilo Sunbousai -->
+            <div id="pin-1" class="sun-pin cursor-pointer" style="left: 18%; top: 35%;">
+              <div class="w-9 h-9 rounded-full bg-[#FF5A00] text-white flex items-center justify-center font-bold text-xs shadow-lg shadow-orange-500/50">
+                01
+              </div>
+              <div class="sun-pin-pulse absolute inset-0 rounded-full border-2 border-[#FF5A00]"></div>
+            </div>
+
+            <div id="pin-2" class="sun-pin cursor-pointer" style="left: 45%; top: 55%;">
+              <div class="w-9 h-9 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold text-xs shadow-lg">
+                02
+              </div>
+            </div>
+
+            <div id="pin-3" class="sun-pin cursor-pointer" style="left: 72%; top: 40%;">
+              <div class="w-9 h-9 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold text-xs shadow-lg">
+                03
+              </div>
+            </div>
+
+            <div id="pin-4" class="sun-pin cursor-pointer" style="left: 88%; top: 70%;">
+              <div class="w-9 h-9 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold text-xs shadow-lg">
+                04
+              </div>
+            </div>
+
+            <!-- Etiqueta del Placeholder -->
+            <div class="text-center z-10 px-4 bg-[#08111D]/80 backdrop-blur-sm p-4 rounded-xl border border-blue-900/60 max-w-xs">
+              <i data-lucide="image" class="w-6 h-6 mb-1 mx-auto text-cyan-400 opacity-60"></i>
+              <span class="font-bold text-xs text-white block">[ ILUSTRACIÓN: MAPA DE NAVEGACIÓN Y PUERTOS ]</span>
+              <span class="text-[10px] text-slate-400 mt-1 block">Espacio reservado para tu gráfico o infografía vectorial</span>
+            </div>
+          </div>
+
+          <!-- Barra de Progreso de la Travesía -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between text-xs font-mono text-slate-400">
+              <span>Progreso de Travesía</span>
+              <span id="story-progress-text" class="text-cyan-400 font-bold">25% (Origen Auditado)</span>
+            </div>
+            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+              <div id="story-progress-bar" class="h-full bg-gradient-to-r from-[#FF5A00] to-cyan-400 w-1/4 transition-all duration-500"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Columna Derecha: Tarjetas Narrativas por las que se hace Scroll -->
+        <div class="lg:col-span-5 space-y-8 py-4">
+          
+          <!-- Hito 1 -->
+          <div class="story-card bg-[#0F1D2E] p-6 sm:p-7 rounded-2xl border-l-4 border-l-[#FF5A00] border-y border-r border-blue-900/50 space-y-3 transition-all" data-step="1">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-[#FF5A00] font-bold">ETAPA 01 // ORÍGENES GLOBALES</span>
+              <span class="text-xs font-mono text-slate-400">China / USA / Europa</span>
+            </div>
+            <h3 class="text-xl font-bold text-white">Auditoría Previa de Documentos</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              El 80% de las multas de aduana y almacenajes en Perú nacen en origen. Antes de mover un solo pallet, nuestro equipo valida tu factura comercial, lista de empaque, permisos sectoriales (DIGESA, DIGEMID) y la partida arancelaria.
+            </p>
+            <div class="p-3 bg-blue-950/70 rounded-xl text-xs text-cyan-300 font-mono">
+              ✔ Evitamos rectificaciones de DAM y recargos consulares.
+            </div>
+          </div>
+
+          <!-- Hito 2 -->
+          <div class="story-card bg-[#0F1D2E] p-6 sm:p-7 rounded-2xl border-l-4 border-l-slate-700 border-y border-r border-blue-900/50 space-y-3 transition-all" data-step="2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-cyan-400 font-bold">ETAPA 02 // LA RUTA</span>
+              <span class="text-xs font-mono text-slate-400">Marítimo / Aéreo</span>
+            </div>
+            <h3 class="text-xl font-bold text-white">Embarque y Monitoreo Activo</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Reserva de bodega garantizada con las principales navieras y aerolíneas. Tienes trazabilidad en tiempo real sobre el zarpe, fechas estimadas de arribo (ETA) y control documental anticipado sin esperas.
+            </p>
+            <div class="p-3 bg-blue-950/70 rounded-xl text-xs text-cyan-300 font-mono">
+              ✔ Reportes periódicos directos por WhatsApp o correo.
+            </div>
+          </div>
+
+          <!-- Hito 3 -->
+          <div class="story-card bg-[#0F1D2E] p-6 sm:p-7 rounded-2xl border-l-4 border-l-slate-700 border-y border-r border-blue-900/50 space-y-3 transition-all" data-step="3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-[#FF5A00] font-bold">ETAPA 03 // ARRIBO AL PERÚ</span>
+              <span class="text-xs font-mono text-slate-400">Callao &amp; Chancay</span>
+            </div>
+            <h3 class="text-xl font-bold text-white">Despacho Anticipado SUNAT</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Numeramos la Declaración Aduanera (DAM) antes de que la nave toque puerto peruano. Esto permite asignación inmediata de canal (Verde / Naranja) y autorización de levante directo, evitando caer en depósitos temporales costosos.
+            </p>
+            <div class="p-3 bg-blue-950/70 rounded-xl text-xs text-cyan-300 font-mono">
+              ✔ Cero costos de demurrage (sobreestadía) de contenedor.
+            </div>
+          </div>
+
+          <!-- Hito 4 -->
+          <div class="story-card bg-[#0F1D2E] p-6 sm:p-7 rounded-2xl border-l-4 border-l-slate-700 border-y border-r border-blue-900/50 space-y-3 transition-all" data-step="4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-emerald-400 font-bold">ETAPA 04 // ENTREGA FINAL</span>
+              <span class="text-xs font-mono text-slate-400">Tu Almacén</span>
+            </div>
+            <h3 class="text-xl font-bold text-white">Levante en 48 Horas y Resguardo</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Retiro portuario expedito y transporte terrestre con custodia hasta las puertas de tu fábrica o centro de distribución. Liquidación de gastos transparente y carpeta tributaria lista para tu contador.
+            </p>
+            <div class="p-3 bg-blue-950/70 rounded-xl text-xs text-emerald-300 font-mono">
+              ✔ Cierre contable limpio y factura con desglose fiel.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECCIÓN SIMULADOR Y CALCULADORA TRIBUTARIA SUNAT (EL CORAZÓN INTERACTIVO) -->
+  <!-- ========================================================================= -->
+  <section id="simulador" class="py-24 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#FF5A00] bg-orange-50 px-3.5 py-1 rounded-full border border-orange-200 font-mono">
+          Herramienta de Diagnóstico 2026
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-[#001A72]">
+          Simulador de Carga y Estimador de Tributos SUNAT
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base">
+          Calcula el espacio cúbico de tu mercadería, la modalidad de transporte sugerida (LCL / FCL) y una pre-liquidación estimada de impuestos arancelarios en el Perú.
+        </p>
+      </div>
+
+      <!-- Contenedor Maestro del Simulador -->
+      <div class="grid lg:grid-cols-12 gap-8 bg-[#08111D] p-6 lg:p-10 rounded-3xl text-white shadow-2xl border border-blue-900/60 relative overflow-hidden">
+        
+        <!-- Columna Izquierda: Parámetros Operativos y de Tributos -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <div class="flex items-center justify-between border-b border-blue-800 pb-3">
+            <h3 class="text-base font-bold text-cyan-400 flex items-center gap-2">
+              <i data-lucide="sliders" class="w-5 h-5"></i>
+              Configuración de Operación
+            </h3>
+            <span class="text-[11px] font-mono text-slate-400">PASO 1 DE 2</span>
+          </div>
+
+          <!-- Selector de Naturaleza de Carga -->
+          <div class="space-y-2">
+            <label class="text-xs font-mono text-slate-300 uppercase">1. Naturaleza de la Carga</label>
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" onclick="setCargoType('pallet')" id="btn-pallet" class="cargo-btn p-3 rounded-xl border border-[#FF5A00] bg-blue-900/40 text-left transition-all">
+                <i data-lucide="boxes" class="w-5 h-5 text-[#FF5A00] mb-1"></i>
+                <div class="font-bold text-sm">Cajas / Pallets</div>
+                <div class="text-[10px] text-slate-400">Consolidado o Contenedor</div>
+              </button>
+              <button type="button" onclick="setCargoType('machinery')" id="btn-machinery" class="cargo-btn p-3 rounded-xl border border-blue-800 bg-blue-950/60 hover:border-[#FF5A00] text-left transition-all">
+                <i data-lucide="truck" class="w-5 h-5 text-[#FF5A00] mb-1"></i>
+                <div class="font-bold text-sm">Vehículos / Maquinaria</div>
+                <div class="text-[10px] text-slate-400">FCL, Ro-Ro o Flat Rack</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Selector de Categoría y Peso de Vehículo (Solo visible cuando se elige Vehículos / Maquinaria) -->
+          <div class="space-y-3 pt-1 hidden" id="vehicle-category-container">
+            <div class="space-y-1.5">
+              <label class="text-xs font-mono text-slate-300 uppercase">Tipo de Unidad Rodante</label>
+              <div class="grid grid-cols-3 gap-2">
+                <button type="button" onclick="setVehicleClass('car')" id="btn-veh-car" class="veh-class-btn p-2 rounded-lg border border-[#FF5A00] bg-blue-900/50 text-left transition-all">
+                  <div class="text-xs font-bold text-white flex items-center gap-1">
+                    <i data-lucide="car" class="w-3.5 h-3.5 text-[#FF5A00]"></i> Auto / SUV
+                  </div>
+                  <div class="text-[9px] text-slate-400 font-mono">1.2 - 3 Ton</div>
+                </button>
+                <button type="button" onclick="setVehicleClass('truck')" id="btn-veh-truck" class="veh-class-btn p-2 rounded-lg border border-blue-800 bg-blue-950/60 hover:border-[#FF5A00] text-left transition-all">
+                  <div class="text-xs font-bold text-white flex items-center gap-1">
+                    <i data-lucide="truck" class="w-3.5 h-3.5 text-cyan-400"></i> Camión
+                  </div>
+                  <div class="text-[9px] text-slate-400 font-mono">4 - 10 Ton</div>
+                </button>
+                <button type="button" onclick="setVehicleClass('heavy')" id="btn-veh-heavy" class="veh-class-btn p-2 rounded-lg border border-blue-800 bg-blue-950/60 hover:border-[#FF5A00] text-left transition-all">
+                  <div class="text-xs font-bold text-white flex items-center gap-1">
+                    <i data-lucide="hard-hat" class="w-3.5 h-3.5 text-amber-400"></i> Maq. Pesada
+                  </div>
+                  <div class="text-[9px] text-slate-400 font-mono">12 - 40+ Ton</div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Slider de Peso (Toneladas) -->
+            <div class="space-y-1.5 pt-1">
+              <div class="flex justify-between items-center">
+                <label class="text-xs font-mono text-slate-300 uppercase">Peso Estimado de la Unidad</label>
+                <span id="weight-val" class="text-sm font-bold text-[#FF5A00] font-mono">1.8 Toneladas</span>
+              </div>
+              <input type="range" id="weightSlider" min="1" max="45" step="0.5" value="1.8" oninput="handleWeightSliderChange()" class="w-full accent-[#FF5A00] bg-slate-800 h-2.5 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[9px] text-slate-500 font-mono">
+                <span>1 Ton (Auto)</span>
+                <span>8 Ton (Camión / Furgón)</span>
+                <span>25 Ton (Excavadora)</span>
+                <span>45 Ton</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slider de Volumen (CBM) para Cajas / Pallets -->
+          <div class="space-y-2 pt-1" id="volume-slider-container">
+            <div class="flex justify-between items-center">
+              <label class="text-xs font-mono text-slate-300 uppercase">2. Volumen Estimado (CBM / m³)</label>
+              <span id="volume-val" class="text-sm font-bold text-[#FF5A00] font-mono">15 CBM</span>
+            </div>
+            <input type="range" id="cargoSlider" min="1" max="100" value="15" oninput="updateSimulation()" class="w-full accent-[#FF5A00] bg-slate-800 h-2.5 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-500 font-mono">
+              <span>LCL (&lt; 20 CBM)</span>
+              <span>20' ST (~30 CBM)</span>
+              <span>40' HQ (~70 CBM)</span>
+            </div>
+          </div>
+
+          <!-- Selector de Puerto de Entrada en Perú (Diferencial Chancay / Callao) -->
+          <div class="space-y-2 pt-1">
+            <label class="text-xs font-mono text-slate-300 uppercase">3. Puerto de Arribo en Perú</label>
+            <select id="portSelect" onchange="updateSimulation()" class="w-full bg-slate-900 border border-blue-900 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#FF5A00] transition-colors">
+              <option value="callao">Puerto del Callao (DP World / APM Terminals)</option>
+              <option value="chancay">Megapuerto de Chancay (Cosco Shipping - Hub Asia Directo)</option>
+              <option value="paita">Puerto de Paita (Norte del Perú)</option>
+              <option value="aereo">Aeropuerto Internacional Jorge Chávez (Carga Aérea)</option>
+            </select>
+          </div>
+
+          <!-- Origen de la Mercadería -->
+          <div class="space-y-2">
+            <label class="text-xs font-mono text-slate-300 uppercase">4. País / Región de Origen</label>
+            <select id="originSelect" onchange="updateSimulation()" class="w-full bg-slate-900 border border-blue-900 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#FF5A00] transition-colors">
+              <option value="asia">Asia (China, Ningbo, Shanghai, Shenzhen, Taiwán)</option>
+              <option value="usa">Estados Unidos (Miami, Los Angeles, Houston)</option>
+              <option value="latam">Sudamérica (Brasil, Chile, Ecuador, Colombia)</option>
+              <option value="europe">Europa (Antwerp, Valencia, Rotterdam, Hamburgo)</option>
+            </select>
+          </div>
+
+          <!-- Mini Calculadora Tributaria SUNAT (Valor FOB + Aranceles) -->
+          <div class="bg-blue-950/60 p-4 rounded-2xl border border-blue-900 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-cyan-400 font-bold uppercase flex items-center gap-1.5">
+                <i data-lucide="calculator" class="w-4 h-4"></i>
+                Pre-Cálculo de Tributos (Opcional)
+              </span>
+              <span class="text-[10px] text-slate-400 font-mono">D.Leg. 1053</span>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="text-[11px] text-slate-400 block font-mono">Valor FOB Aprox. ($)</label>
+                <input type="number" id="fobValue" placeholder="Ej. 10000" value="12000" oninput="updateSimulation()" class="w-full bg-slate-900 border border-blue-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-[#FF5A00]">
+              </div>
+              <div>
+                <label class="text-[11px] text-slate-400 block font-mono">Tasa Ad-Valorem</label>
+                <select id="advaloremRate" onchange="updateSimulation()" class="w-full bg-slate-900 border border-blue-800 rounded-lg px-2 py-2 text-xs text-white focus:outline-none focus:border-[#FF5A00]">
+                  <option value="0">0% (Con TLC / Partida 0)</option>
+                  <option value="6" selected>6% (Tasa Promedio)</option>
+                  <option value="11">11% (Confecciones / Calzado)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Columna Derecha: Vista Técnica X-Ray (SVG) y Ticket de Diagnóstico -->
+        <div class="lg:col-span-7 flex flex-col justify-between bg-slate-950/90 p-6 sm:p-7 rounded-2xl border border-blue-900/60 space-y-5">
+          
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-cyan-400" id="sim-mode-title">VISTA TÉCNICA: CARGA CONSOLIDADA (LCL)</span>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30" id="sim-status">ÓPTIMO PARA ZARPE</span>
+            </div>
+
+            <!-- Blueprint SVG Dinámico de Contenedor -->
+            <div class="relative w-full h-44 bg-[#08111D] rounded-xl border border-slate-800 p-4 flex items-center justify-center overflow-hidden">
+              <div class="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#38bdf8_1px,transparent_1px),linear-gradient(to_bottom,#38bdf8_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+              <div id="svg-container" class="w-full h-full flex items-center justify-center">
+                <!-- Inyectado por JS -->
+              </div>
+            </div>
+
+            <!-- Resumen Técnico & Tributario -->
+            <div class="bg-slate-900 p-4 rounded-xl border border-blue-900/60 space-y-3">
+              <div class="text-xs font-mono text-slate-400 uppercase flex items-center justify-between">
+                <span>Diagnóstico Makipura World:</span>
+                <span class="text-[#FF5A00] font-mono text-[10px]">TARIFA ALL-IN RECOMENDADA</span>
+              </div>
+              
+              <div class="grid sm:grid-cols-2 gap-4 text-sm pt-1">
+                <div>
+                  <span class="text-xs text-slate-500 block font-mono">Modalidad Sugerida:</span>
+                  <strong class="text-cyan-400 font-semibold" id="res-modality">Carga Consolidada (LCL)</strong>
+                </div>
+                <div>
+                  <span class="text-xs text-slate-500 block font-mono">Tiempo de Tránsito Estimado:</span>
+                  <strong class="text-white font-semibold" id="res-transit">30 - 38 Días</strong>
+                </div>
+              </div>
+
+              <!-- Desglose de Tributos Estimados SUNAT -->
+              <div class="pt-3 border-t border-slate-800 space-y-1">
+                <div class="flex justify-between text-xs text-slate-400 font-mono">
+                  <span>Ad-Valorem + IGV (16%) + IPM (2%):</span>
+                  <span class="text-white font-bold" id="res-taxes">$2,448 USD</span>
+                </div>
+                <div class="flex justify-between text-xs text-slate-400 font-mono">
+                  <span>Percepción Estimada (3.5%):</span>
+                  <span class="text-cyan-400 font-bold" id="res-perception">$505 USD</span>
+                </div>
+              </div>
+
+              <div class="pt-2 border-t border-slate-800 text-xs text-slate-300 flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-4 h-4 text-[#FF5A00] shrink-0"></i>
+                <span id="res-customs">Recomendación: Aplicar Despacho Anticipado para evitar almacenaje portuario.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botón de Conversión directa hacia WhatsApp -->
+          <div>
+            <button type="button" onclick="sendSimulationToWhatsApp()" class="w-full bg-[#FF5A00] hover:bg-[#e05000] text-white py-4 rounded-xl font-bold text-sm shadow-xl shadow-orange-500/20 flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 cursor-pointer">
+              <i data-lucide="message-square" class="w-5 h-5"></i>
+              Enviar Diagnóstico y Solicitar Oferta Cerrada por WhatsApp
+            </button>
+            <p class="text-[11px] text-center text-slate-500 mt-2 font-mono">
+              Recibirás cotización formal con detalle de flete y gastos locales en el puerto.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECCIÓN EL DIFERENCIAL (AUTORIDAD, DOLOR REAL Y EMPATÍA) -->
+  <!-- ========================================================================= -->
+  <section id="diferencial" class="py-24 bg-[#F4F5F7]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#FF5A00] bg-orange-100 px-3.5 py-1 rounded-full border border-orange-200 font-mono">
+            La Ventaja Competitiva
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-[#001A72] leading-tight">
+            No somos simples tramitadores. Hablamos tu mismo idioma financiero.
+          </h2>
+          <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+            La dirección de Makipura World cuenta con experiencia directa liderando áreas de compras y comercio exterior en empresas peruanas. Sabemos exactamente lo que duele un contenedor retenido:
+          </p>
+          
+          <ul class="space-y-3.5 text-sm font-medium text-slate-700">
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-orange-100 text-[#FF5A00] flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+              </div>
+              <span><strong>Destrucción de margen:</strong> El costo de $150 a $300 diarios por sobreestadía de contenedor.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-orange-100 text-[#FF5A00] flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+              </div>
+              <span><strong>Pérdida de clientes:</strong> Quiebre de stock en almacén por fletes marítimos desatendidos.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-orange-100 text-[#FF5A00] flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+              </div>
+              <span><strong>El engaño del flete barato:</strong> Te cobran $1,200 en origen pero te facturan $3,000 en gastos locales inventados en el Callao.</span>
+            </li>
+          </ul>
+
+          <!-- Placeholder Gris para Gráfico / Foto de Equipo -->
+          <div class="w-full h-36 rounded-2xl img-placeholder">
+            <i data-lucide="image" class="w-6 h-6 mb-1 opacity-50"></i>
+            <span>[ ILUSTRACIÓN: COMPARATIVA DE COSTOS LOGÍSTICOS ]</span>
+          </div>
+        </div>
+
+        <!-- Tarjetas Comparativas Lado a Lado -->
+        <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+          
+          <!-- Operador Tradicional -->
+          <div class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm space-y-4 relative">
+            <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center font-bold">
+              <i data-lucide="x-circle" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900">El Operador Tradicional</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Te atrae con un flete marítimo irrealmente bajo para cerrar la venta, pero no audita documentos en origen. Cuando la nave llega a Perú, tu carga cae en canal rojo, te cobran gastos locales sorpresa y te cobran días de sobreestadía portuaria.
+            </p>
+            <div class="pt-3 border-t border-slate-100 space-y-1.5 text-xs text-red-600 font-medium">
+              <div class="flex items-center gap-2">✘ Cargos de vistos buenos inflados</div>
+              <div class="flex items-center gap-2">✘ Falta de proactividad en SUNAT</div>
+              <div class="flex items-center gap-2">✘ Cero empatía con tu flujo de caja</div>
+            </div>
+          </div>
+
+          <!-- El Estándar Makipura -->
+          <div class="bg-[#001A72] text-white p-7 rounded-2xl shadow-xl space-y-4 border border-blue-900 relative overflow-hidden">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/20 text-[#FF5A00] flex items-center justify-center font-bold border border-orange-500/30">
+              <i data-lucide="shield-check" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-bold text-lg text-white">El Estándar Makipura World</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Cotización integral <strong>All-In transparente</strong> desde el día uno. Despacho Anticipado obligatorio ante SUNAT, auditoría técnica de factura comercial y packing list antes del zarpe, y entrega en tu almacén en 48 horas tras desembarque.
+            </p>
+            <div class="pt-3 border-t border-blue-800 space-y-1.5 text-xs text-emerald-400 font-medium">
+              <div class="flex items-center gap-2">✔ Costo cerrado y sin letras chicas</div>
+              <div class="flex items-center gap-2">✔ Retiro directo sin pasar por depósito</div>
+              <div class="flex items-center gap-2">✔ Criterio gerencial de rentabilidad</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECCIÓN SERVICIOS INTEGRALES -->
+  <!-- ========================================================================= -->
+  <section id="servicios" class="py-24 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#FF5A00] bg-orange-50 px-3.5 py-1 rounded-full border border-orange-200 font-mono">
+          Soluciones Logísticas
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-[#001A72]">
+          Cobertura completa de la cadena de suministro
+        </h2>
+        <p class="text-slate-600 text-sm">
+          Operamos de extremo a extremo para que tú solo te preocupes de vender tu mercadería.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Tarjeta 1 -->
+        <div class="bg-[#F4F5F7] p-6 rounded-2xl border border-slate-200 hover:border-[#001A72] transition-all space-y-4 group flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-full h-36 rounded-xl img-placeholder group-hover:border-[#001A72]">
+              <i data-lucide="image" class="w-6 h-6 mb-1 opacity-50"></i>
+              <span class="text-[10px]">[ ILUSTRACIÓN: CARGA MARÍTIMA FCL/LCL ]</span>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-[#001A72] text-white flex items-center justify-center group-hover:bg-[#FF5A00] transition-colors">
+              <i data-lucide="ship" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-lg text-[#001A72]">Carga Marítima (FCL / LCL)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Contenedores secos, High Cube, refrigerados y consolidado desde los principales puertos del mundo hacia Callao, Chancay y Paita con tarifas competitivas.
+            </p>
+          </div>
+          <a href="#cotizador" class="text-xs font-bold text-[#FF5A00] group-hover:text-[#001A72] flex items-center gap-1 transition-colors pt-2">
+            Cotizar flete marítimo <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="bg-[#F4F5F7] p-6 rounded-2xl border border-slate-200 hover:border-[#001A72] transition-all space-y-4 group flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-full h-36 rounded-xl img-placeholder group-hover:border-[#001A72]">
+              <i data-lucide="image" class="w-6 h-6 mb-1 opacity-50"></i>
+              <span class="text-[10px]">[ ILUSTRACIÓN: CARGA AÉREA EXPRESS ]</span>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-[#001A72] text-white flex items-center justify-center group-hover:bg-[#FF5A00] transition-colors">
+              <i data-lucide="plane" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-lg text-[#001A72]">Carga Aérea Express</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Para reposición urgente de stock, muestras comerciales, medicamentos o repuestos críticos. Conexión de aeropuertos internacionales con Lima en tiempos récord.
+            </p>
+          </div>
+          <a href="#cotizador" class="text-xs font-bold text-[#FF5A00] group-hover:text-[#001A72] flex items-center gap-1 transition-colors pt-2">
+            Cotizar flete aéreo <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="bg-[#F4F5F7] p-6 rounded-2xl border border-slate-200 hover:border-[#001A72] transition-all space-y-4 group flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-full h-36 rounded-xl img-placeholder group-hover:border-[#001A72]">
+              <i data-lucide="image" class="w-6 h-6 mb-1 opacity-50"></i>
+              <span class="text-[10px]">[ ILUSTRACIÓN: TRANSPORTE TERRESTRE ]</span>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-[#001A72] text-white flex items-center justify-center group-hover:bg-[#FF5A00] transition-colors">
+              <i data-lucide="truck" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-lg text-[#001A72]">Transporte Terrestre</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Tránsito internacional desde países fronterizos (Chile, Brasil, Bolivia, Ecuador) y transporte local seguro desde los puertos de Callao y Chancay hasta tu empresa.
+            </p>
+          </div>
+          <a href="#cotizador" class="text-xs font-bold text-[#FF5A00] group-hover:text-[#001A72] flex items-center gap-1 transition-colors pt-2">
+            Cotizar transporte <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="bg-[#F4F5F7] p-6 rounded-2xl border border-slate-200 hover:border-[#001A72] transition-all space-y-4 group flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-full h-36 rounded-xl img-placeholder group-hover:border-[#001A72]">
+              <i data-lucide="image" class="w-6 h-6 mb-1 opacity-50"></i>
+              <span class="text-[10px]">[ ILUSTRACIÓN: GESTIÓN ADUANERA SUNAT ]</span>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-[#001A72] text-white flex items-center justify-center group-hover:bg-[#FF5A00] transition-colors">
+              <i data-lucide="file-check" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-lg text-[#001A72]">Gestión Aduanera SUNAT</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Clasificación arancelaria, permisos sectoriales (DIGESA, DIGEMID, MTC, SENASA) y aplicación estricta de Despacho Anticipado para asegurar canal verde.
+            </p>
+          </div>
+          <a href="#cotizador" class="text-xs font-bold text-[#FF5A00] group-hover:text-[#001A72] flex items-center gap-1 transition-colors pt-2">
+            Cotizar aduanas <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECCIÓN FORMULARIO DE COTIZACIÓN (B2B) CON PERSISTENCIA DE LEADS -->
+  <!-- ========================================================================= -->
+  <section id="cotizador" class="py-24 bg-[#001A72] text-white relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="bg-[#08111D] p-8 sm:p-12 rounded-3xl border border-blue-900 shadow-2xl space-y-8">
+        
+        <div class="text-center space-y-3">
+          <span class="text-xs font-mono uppercase tracking-widest text-[#FF5A00] bg-orange-500/10 px-3.5 py-1 rounded-full border border-orange-500/20">
+            Cotización Corporativa
+          </span>
+          <h2 class="text-3xl font-black text-white">Solicita una propuesta cerrada para tu próxima importación</h2>
+          <p class="text-slate-400 text-sm max-w-xl mx-auto">
+            Completa los detalles de tu carga. Uno de nuestros especialistas en comercio exterior calculará tu tarifa transparente All-In.
+          </p>
+        </div>
+
+        <form id="leadForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label for="form-name" class="text-xs font-mono text-slate-300 uppercase">Nombre y Apellido *</label>
+              <input type="text" id="form-name" required placeholder="Ej. Carlos Mendoza" class="w-full bg-slate-900 border border-blue-900 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#FF5A00] transition-colors">
+            </div>
+            <div class="space-y-2">
+              <label for="form-company" class="text-xs font-mono text-slate-300 uppercase">RUC o Razón Social *</label>
+              <input type="text" id="form-company" required placeholder="Ej. Importaciones del Norte SAC / 20615..." class="w-full bg-slate-900 border border-blue-900 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#FF5A00] transition-colors">
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label for="form-phone" class="text-xs font-mono text-slate-300 uppercase">WhatsApp Directo *</label>
+              <input type="tel" id="form-phone" required placeholder="Ej. +51 999 999 999" class="w-full bg-slate-900 border border-blue-900 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#FF5A00] transition-colors">
+            </div>
+            <div class="space-y-2">
+              <label for="form-transport" class="text-xs font-mono text-slate-300 uppercase">Modalidad Requerida *</label>
+              <select id="form-transport" class="w-full bg-slate-900 border border-blue-900 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#FF5A00] transition-colors">
+                <option value="Marítimo FCL (Callao / Chancay)">Marítimo FCL (Contenedor Completo)</option>
+                <option value="Marítimo LCL (Carga Consolidada)">Marítimo LCL (Carga Consolidada / CBM)</option>
+                <option value="Carga Aérea Express">Carga Aérea Express</option>
+                <option value="Transporte Terrestre Internacional">Transporte Terrestre Internacional</option>
+                <option value="Solo Agenciamiento de Aduanas">Solo Agenciamiento y Despacho SUNAT</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label for="form-details" class="text-xs font-mono text-slate-300 uppercase">Descripción de la Mercancía, Puerto de Origen y Volumen</label>
+            <textarea id="form-details" rows="3" required placeholder="Ej. 18 pallets de repuestos desde Ningbo a Chancay, valor aprox $25,000..." class="w-full bg-slate-900 border border-blue-900 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#FF5A00] transition-colors"></textarea>
+          </div>
+
+          <!-- Consentimiento Ley 29733 -->
+          <div class="flex items-start gap-3 pt-1">
+            <input type="checkbox" id="form-privacy" required class="mt-1 accent-[#FF5A00] rounded cursor-pointer">
+            <label for="form-privacy" class="text-xs text-slate-400 cursor-pointer">
+              He leído y acepto la <a href="#" onclick="openModal('privacyModal'); return false;" class="text-cyan-400 underline hover:text-cyan-300">Política de Privacidad (Ley N° 29733)</a> y autorizo el tratamiento de mis datos para fines de cotización comercial.
+            </label>
+          </div>
+
+          <button type="submit" class="w-full bg-[#FF5A00] hover:bg-[#e05000] text-white py-4 rounded-xl font-bold text-base shadow-xl shadow-orange-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer">
+            <span>Enviar Solicitud de Cotización</span>
+            <i data-lucide="send" class="w-5 h-5"></i>
+          </button>
+        </form>
+
+        <div id="form-success-banner" class="hidden p-4 rounded-xl bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs font-mono flex items-center gap-3">
+          <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+          <span>¡Solicitud registrada correctamente! Redirigiendo a WhatsApp para atención inmediata...</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECCIÓN FAQ -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="text-center space-y-2">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#001A72] bg-blue-50 px-3.5 py-1 rounded-full border border-blue-200 font-mono">
+          Resolución de Dudas
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-[#001A72]">Preguntas Clave sobre Importaciones a Perú</h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <details class="group bg-white border border-slate-200 rounded-2xl p-5 [&_svg]:open:-rotate-180 shadow-xs">
+          <summary class="flex justify-between items-center font-bold text-[#001A72] cursor-pointer list-none text-sm sm:text-base">
+            <span>¿Por qué el Despacho Anticipado es obligatorio en la mayoría de importaciones?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transition-transform duration-200"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+            Conforme a la Ley General de Aduanas (D.Leg. N° 1053), el Despacho Anticipado permite declarar la carga antes del arribo del buque. Esto reduce drásticamente los costos de depósito temporal y permite que la mercadería obtenga levante en menos de 48 horas sin pagar estadías adicionales.
+          </p>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-2xl p-5 [&_svg]:open:-rotate-180 shadow-xs">
+          <summary class="flex justify-between items-center font-bold text-[#001A72] cursor-pointer list-none text-sm sm:text-base">
+            <span>¿Qué ventajas ofrece recibir carga por el Megapuerto de Chancay vs. Callao?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transition-transform duration-200"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+            Chancay reduce de 10 a 15 días el tiempo de tránsito desde puertos clave de Asia (China) al ser un puerto de atraque directo para buques de gran calado, descongestionando el acceso de camiones en Lima y agilizando la distribución hacia el norte y centro del país.
+          </p>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-2xl p-5 [&_svg]:open:-rotate-180 shadow-xs">
+          <summary class="flex justify-between items-center font-bold text-[#001A72] cursor-pointer list-none text-sm sm:text-base">
+            <span>¿Cómo se calculan los tributos de importación ante la SUNAT?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 transition-transform duration-200"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+            Se calculan sobre la base imponible CIF (FOB + Flete + Seguro): Ad-Valorem (0%, 6% u 11%), IGV (16%), IPM (2%) y la Percepción del IGV (3.5% para importadores regulares o 10% en tu primera operación). Makipura te entrega este cálculo desglosado antes del zarpe de la carga.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#050B14] text-slate-400 py-16 border-t border-blue-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="grid md:grid-cols-3 gap-8 items-center border-b border-slate-800 pb-12">
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg img-placeholder img-placeholder-dark">
+              <span class="text-[7px] font-bold">LOGO</span>
+            </div>
+            <span class="text-2xl font-black tracking-wider text-white flex items-center gap-1">
+              MAKI<span class="text-[#FF5A00]">PURA</span>
+            </span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+            Operador logístico integral internacional y agencia de aduanas con criterio gerencial y visión financiera para el importador peruano.
+          </p>
+        </div>
+        
+        <div class="flex flex-wrap gap-6 text-sm font-medium text-slate-300 md:justify-center">
+          <a href="#" onclick="openModal('termsModal'); return false;" class="hover:text-[#FF5A00] transition-colors">Términos y Condiciones</a>
+          <a href="#" onclick="openModal('privacyModal'); return false;" class="hover:text-[#FF5A00] transition-colors">Política de Privacidad</a>
+          <a href="https://indecopi.gob.pe" target="_blank" rel="noopener noreferrer" class="hover:text-[#FF5A00] transition-colors flex items-center gap-1">
+            <i data-lucide="book-open" class="w-4 h-4"></i>
+            Libro de Reclamaciones
+          </a>
+        </div>
+
+        <div class="space-y-1 md:text-right font-mono text-xs">
+          <p class="text-slate-400">RUC: 206XXXXXXXX</p>
+          <p class="text-slate-300">Oficinas Operativas: Lima &amp; Trujillo, Perú</p>
+          <p class="text-slate-500">contacto@makipuraworld.com</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+        <p>&copy; 2026 Makipura World S.A.C. Todos los derechos reservados.</p>
+        <p class="mt-2 sm:mt-0 font-mono text-[11px]">Diseñado conforme al D.Leg. N° 1053 SUNAT</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MODAL TÉRMINOS LEGALES -->
+  <div id="termsModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-[#0B192C] text-white max-w-2xl w-full p-6 sm:p-8 rounded-3xl border border-blue-900 space-y-4 relative max-h-[85vh] overflow-y-auto">
+      <button onclick="closeModal('termsModal')" class="absolute top-6 right-6 text-slate-400 hover:text-white" aria-label="Cerrar modal">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <h3 class="text-xl font-bold text-cyan-400 flex items-center gap-2">
+        <i data-lucide="file-text" class="w-5 h-5"></i>
+        Términos y Condiciones Generales
+      </h3>
+      <div class="text-xs text-slate-300 space-y-3 leading-relaxed">
+        <p><strong>1. Marco Normativo:</strong> Los servicios de transporte y despacho aduanero se rigen estrictamente por la Ley General de Aduanas (D.Leg. N° 1053) y los tratados comerciales suscritos por la República del Perú.</p>
+        <p><strong>2. Exactitud Documental:</strong> El importador responderá ante la administración tributaria (SUNAT) por la exactitud de los valores consignados en factura y listas de empaque.</p>
+        <p><strong>3. Sobrecostos de Terceros:</strong> Gastos ocasionados por reconocimiento físico (canal rojo) o inspecciones sanitarias (DIGESA/SENASA) ajenos a la intermediación de Makipura World se trasladarán con soporte documentario oficial.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PRIVACIDAD -->
+  <div id="privacyModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-[#0B192C] text-white max-w-2xl w-full p-6 sm:p-8 rounded-3xl border border-blue-900 space-y-4 relative max-h-[85vh] overflow-y-auto">
+      <button onclick="closeModal('privacyModal')" class="absolute top-6 right-6 text-slate-400 hover:text-white" aria-label="Cerrar modal">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <h3 class="text-xl font-bold text-cyan-400 flex items-center gap-2">
+        <i data-lucide="shield" class="w-5 h-5"></i>
+        Política de Privacidad (Ley N° 29733)
+      </h3>
+      <div class="text-xs text-slate-300 space-y-3 leading-relaxed">
+        <p>En conformidad con la Ley N° 29733, los datos consignados en este sitio web serán almacenados en el banco de datos de prospectos comerciales de Makipura World S.A.C. con la exclusiva finalidad de remitir cotizaciones y asesoría en comercio exterior.</p>
+        <p>Usted puede revocar su consentimiento o ejercer sus derechos ARCO enviando un correo a <strong>contacto@makipuraworld.com</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT: NARRATIVA SUNBOUSAI-STYLE + LENIS + GSAP + SIMULADOR -->
+  <!-- ========================================================================= -->
+  <script>
+    // 1. Inicializar Lenis Smooth Scroll (Fluidez suave inspirada en Sunbousai)
+    let lenis;
+    try {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+        smoothTouch: false
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    } catch(e) {
+      console.warn('Lenis scroll no soportado o en modo estándar:', e);
+    }
+
+    // 2. Inicializar Iconos Lucide
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      updateSimulation();
+      initStoryScrollAnimation();
+    });
+
+    // 3. Menú móvil
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const openIcon = document.getElementById('menu-icon-open');
+      const closeIcon = document.getElementById('menu-icon-close');
+      const isHidden = menu.classList.contains('hidden');
+      
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        openIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    }
+
+    // 4. GSAP + ScrollTrigger: Storytelling de la Travesía (Inspirado en Sunbousai)
+    function initStoryScrollAnimation() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Sincronizar Lenis con ScrollTrigger si está activo
+      if (lenis) {
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+      }
+
+      // Animación secuencial de las tarjetas de la travesía
+      const storyCards = document.querySelectorAll('.story-card');
+      const progressBar = document.getElementById('story-progress-bar');
+      const progressText = document.getElementById('story-progress-text');
+      const stepBadge = document.getElementById('story-step-badge');
+
+      const stepData = {
+        '1': { progress: '25%', text: '25% (Origen Auditado)', badge: 'FASE 01: ORIGEN' },
+        '2': { progress: '50%', text: '50% (En Navegación)', badge: 'FASE 02: EN TRÁNSITO' },
+        '3': { progress: '75%', text: '75% (Despacho Anticipado)', badge: 'FASE 03: ARRIBO SUNAT' },
+        '4': { progress: '100%', text: '100% (Levante en 48h)', badge: 'FASE 04: ENTREGADO' }
+      };
+
+      storyCards.forEach((card) => {
+        ScrollTrigger.create({
+          trigger: card,
+          start: 'top 60%',
+          end: 'bottom 40%',
+          onEnter: () => activateStep(card.dataset.step),
+          onEnterBack: () => activateStep(card.dataset.step)
+        });
+      });
+
+      function activateStep(step) {
+        if (!stepData[step]) return;
+        
+        // Actualizar barra y textos
+        progressBar.style.width = stepData[step].progress;
+        progressText.innerText = stepData[step].text;
+        stepBadge.innerText = stepData[step].badge;
+
+        // Estilos de tarjetas
+        storyCards.forEach(c => {
+          if (c.dataset.step === step) {
+            c.classList.add('border-l-[#FF5A00]', 'bg-[#13253b]');
+            c.classList.remove('border-l-slate-700', 'bg-[#0F1D2E]');
+          } else {
+            c.classList.remove('border-l-[#FF5A00]', 'bg-[#13253b]');
+            c.classList.add('border-l-slate-700', 'bg-[#0F1D2E]');
+          }
+        });
+
+        // Actualizar pines
+        for (let i = 1; i <= 4; i++) {
+          const pin = document.getElementById(`pin-${i}`);
+          if (!pin) continue;
+          const pinCircle = pin.querySelector('.w-9');
+          if (i <= parseInt(step)) {
+            pinCircle.className = 'w-9 h-9 rounded-full bg-[#FF5A00] text-white flex items-center justify-center font-bold text-xs shadow-lg shadow-orange-500/50';
+          } else {
+            pinCircle.className = 'w-9 h-9 rounded-full bg-blue-800 text-slate-300 flex items-center justify-center font-bold text-xs shadow';
+          }
+        }
+      }
+    }
+
+    // 5. Estado y Funciones del Simulador de Carga y Tributos
+    let currentCargoType = 'pallet';
+    let currentVehicleClass = 'car'; // 'car', 'truck', 'heavy'
+
+    function setCargoType(type) {
+      currentCargoType = type;
+      
+      const btnPallet = document.getElementById('btn-pallet');
+      const btnMachinery = document.getElementById('btn-machinery');
+      const sliderContainer = document.getElementById('volume-slider-container');
+      const vehicleContainer = document.getElementById('vehicle-category-container');
+
+      if (type === 'pallet') {
+        btnPallet.className = "cargo-btn p-3 rounded-xl border border-[#FF5A00] bg-blue-900/40 text-left transition-all";
+        btnMachinery.className = "cargo-btn p-3 rounded-xl border border-blue-800 bg-blue-950/60 hover:border-[#FF5A00] text-left transition-all";
+        sliderContainer.style.display = 'block';
+        vehicleContainer.classList.add('hidden');
+      } else {
+        btnMachinery.className = "cargo-btn p-3 rounded-xl border border-[#FF5A00] bg-blue-900/40 text-left transition-all";
+        btnPallet.className = "cargo-btn p-3 rounded-xl border border-blue-800 bg-blue-950/60 hover:border-[#FF5A00] text-left transition-all";
+        sliderContainer.style.display = 'none';
+        vehicleContainer.classList.remove('hidden');
+      }
+
+      updateSimulation();
+    }
+
+    function setVehicleClass(vClass) {
+      currentVehicleClass = vClass;
+      const slider = document.getElementById('weightSlider');
+
+      // Actualizar valor por defecto y rango del slider según la clase seleccionada
+      if (vClass === 'car') {
+        slider.value = 1.8;
+      } else if (vClass === 'truck') {
+        slider.value = 6.5;
+      } else if (vClass === 'heavy') {
+        slider.value = 24.0;
+      }
+
+      updateVehicleClassButtons();
+      updateSimulation();
+    }
+
+    function handleWeightSliderChange() {
+      const weight = parseFloat(document.getElementById('weightSlider').value) || 1.8;
+      
+      // Auto-cambiar clase según el peso arrastrado
+      if (weight <= 3.5) {
+        currentVehicleClass = 'car';
+      } else if (weight <= 11) {
+        currentVehicleClass = 'truck';
+      } else {
+        currentVehicleClass = 'heavy';
+      }
+
+      updateVehicleClassButtons();
+      updateSimulation();
+    }
+
+    function updateVehicleClassButtons() {
+      const btnCar = document.getElementById('btn-veh-car');
+      const btnTruck = document.getElementById('btn-veh-truck');
+      const btnHeavy = document.getElementById('btn-veh-heavy');
+
+      const activeClasses = "veh-class-btn p-2 rounded-lg border border-[#FF5A00] bg-blue-900/60 text-left transition-all ring-1 ring-[#FF5A00]/40";
+      const inactiveClasses = "veh-class-btn p-2 rounded-lg border border-blue-800 bg-blue-950/60 hover:border-[#FF5A00] text-left transition-all";
+
+      btnCar.className = currentVehicleClass === 'car' ? activeClasses : inactiveClasses;
+      btnTruck.className = currentVehicleClass === 'truck' ? activeClasses : inactiveClasses;
+      btnHeavy.className = currentVehicleClass === 'heavy' ? activeClasses : inactiveClasses;
+    }
+
+    function updateSimulation() {
+      const volume = parseFloat(document.getElementById('cargoSlider').value) || 15;
+      const weight = parseFloat(document.getElementById('weightSlider').value) || 1.8;
+      const origin = document.getElementById('originSelect').value;
+      const port = document.getElementById('portSelect').value;
+      const fob = parseFloat(document.getElementById('fobValue').value) || 0;
+      const advaloremPct = parseFloat(document.getElementById('advaloremRate').value) || 0;
+
+      const volumeValLabel = document.getElementById('volume-val');
+      const weightValLabel = document.getElementById('weight-val');
+      const svgContainer = document.getElementById('svg-container');
+      const resModality = document.getElementById('res-modality');
+      const resTransit = document.getElementById('res-transit');
+      const resCustoms = document.getElementById('res-customs');
+      const resTaxes = document.getElementById('res-taxes');
+      const resPerception = document.getElementById('res-perception');
+      const simTitle = document.getElementById('sim-mode-title');
+
+      if (weightValLabel) {
+        weightValLabel.innerText = `${weight.toFixed(1)} Toneladas`;
+      }
+
+      // Tiempos según puerto de destino
+      let transitBase = "";
+      if (port === 'chancay') {
+        transitBase = origin === 'asia' ? '25 - 30 Días (Directo Chancay)' : '18 - 25 Días';
+      } else if (port === 'aereo') {
+        transitBase = '3 - 7 Días (Jorge Chávez Express)';
+      } else {
+        transitBase = origin === 'asia' ? '32 - 38 Días (Callao)' : origin === 'usa' ? '12 - 18 Días' : '6 - 12 Días';
+      }
+      resTransit.innerText = transitBase;
+
+      // Flete referencial según peso o volumen
+      let estimatedFreight = 0;
+      if (currentCargoType === 'machinery') {
+        if (weight <= 3.5) {
+          estimatedFreight = 2200; // Auto en contenedor o Ro-Ro
+        } else if (weight <= 11) {
+          estimatedFreight = 4200; // Camión / Furgón Ro-Ro
+        } else {
+          estimatedFreight = 7500; // Maquinaria pesada Flat Rack
+        }
+      } else {
+        estimatedFreight = volume * 70;
+      }
+
+      // Cálculo de Tributos SUNAT (Ad-Valorem + IGV 16% + IPM 2% + Percepción 3.5%)
+      const estimatedInsurance = (fob + estimatedFreight) * 0.015;
+      const cif = fob + estimatedFreight + estimatedInsurance;
+
+      const advaloremTotal = cif * (advaloremPct / 100);
+      const igvIpmTotal = (cif + advaloremTotal) * 0.18;
+      const taxesSum = Math.round(advaloremTotal + igvIpmTotal);
+      const perceptionSum = Math.round((cif + advaloremTotal + igvIpmTotal) * 0.035);
+
+      resTaxes.innerText = `$${taxesSum.toLocaleString()} USD`;
+      resPerception.innerText = `$${perceptionSum.toLocaleString()} USD`;
+
+      if (currentCargoType === 'machinery') {
+        // DISCRIMINACIÓN VISUAL SEGÚN EL PESO DEL VEHÍCULO
+        if (weight <= 3.5) {
+          // 1. VEHÍCULO LIGERO (AUTO / SUV) -> CONTENEDOR CERRADO TRINCHADO
+          simTitle.innerText = `VISTA TÉCNICA: VEHÍCULO LIGERO EN CONTENEDOR 20' ST (${weight.toFixed(1)} TON)`;
+          
+          svgContainer.innerHTML = `
+            <svg viewBox="0 0 400 120" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <!-- Marco de Contenedor Cerrado Estándar -->
+              <rect x="25" y="22" width="350" height="88" rx="4" fill="#0b1728" stroke="#38bdf8" stroke-width="2"/>
+              <line x1="80" y1="22" x2="80" y2="110" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="320" y1="22" x2="320" y2="110" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="3,3"/>
+              <text x="35" y="40" fill="#38bdf8" font-size="9" font-family="monospace">CONTENEDOR 20' FCL // TRINCAJE HOMOLOGADO</text>
+              
+              <!-- Piso del Contenedor -->
+              <line x1="30" y1="104" x2="370" y2="104" stroke="#475569" stroke-width="2"/>
+              
+              <!-- Silueta Vectorial Automóvil / Sedán / SUV en Naranja Makipura -->
+              <g transform="translate(130, 48)">
+                <!-- Carrocería Auto -->
+                <path d="M 10 32 L 24 16 L 50 16 L 70 24 L 125 24 C 132 24, 138 29, 138 36 L 138 42 L 5 42 C 5 36, 6 32, 10 32 Z" fill="#FF5A00" stroke="#ff7a29" stroke-width="1.5"/>
+                <!-- Cabina y Ventanas -->
+                <path d="M 28 19 L 48 19 L 66 26 L 24 26 Z" fill="#08111D" opacity="0.9"/>
+                <path d="M 52 19 L 75 19 L 90 26 L 69 26 Z" fill="#08111D" opacity="0.9"/>
+                <!-- Ruedas -->
+                <circle cx="36" cy="42" r="10" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+                <circle cx="36" cy="42" r="4" fill="#38bdf8"/>
+                <circle cx="108" cy="42" r="10" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+                <circle cx="108" cy="42" r="4" fill="#38bdf8"/>
+                <!-- Cuñas / Trincas de Sujeción (Chocks) en las ruedas -->
+                <polygon points="20,52 26,42 26,52" fill="#38bdf8"/>
+                <polygon points="46,52 46,42 52,52" fill="#38bdf8"/>
+                <polygon points="92,52 98,42 98,52" fill="#38bdf8"/>
+                <polygon points="118,52 118,42 124,52" fill="#38bdf8"/>
+              </g>
+            </svg>
+          `;
+
+          resModality.innerText = "Contenedor Exclusivo 20' FCL (Trinchado de Seguridad)";
+          resCustoms.innerText = "Aduanas: Verificación de VIN, número de motor y homologación MTC.";
+
+        } else if (weight <= 11) {
+          // 2. VEHÍCULO COMERCIAL / CAMIÓN (4 - 10 TON) -> BUQUE RO-RO O RAMPA
+          simTitle.innerText = `VISTA TÉCNICA: TRANSPORTE RO-RO / CAMIÓN DE CARGA (${weight.toFixed(1)} TON)`;
+          
+          svgContainer.innerHTML = `
+            <svg viewBox="0 0 400 120" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <!-- Rampa de Embarque Ro-Ro del Barco -->
+              <line x1="20" y1="106" x2="380" y2="106" stroke="#38bdf8" stroke-width="2"/>
+              <text x="30" y="35" fill="#38bdf8" font-size="9" font-family="monospace">BODEGA EMBARQUE RO-RO // ROLL-ON ROLL-OFF</text>
+              
+              <!-- Silueta Camión Comercial en Naranja Makipura -->
+              <g transform="translate(100, 36)">
+                <!-- Furgón de Carga Posterior -->
+                <rect x="10" y="10" width="105" height="48" rx="2" fill="#0f233d" stroke="#38bdf8" stroke-width="1.5"/>
+                <line x1="45" y1="10" x2="45" y2="58" stroke="#1e3a5f" stroke-width="1"/>
+                <line x1="80" y1="10" x2="80" y2="58" stroke="#1e3a5f" stroke-width="1"/>
+                <!-- Cabina Camión -->
+                <path d="M 115 22 L 140 22 C 145 22, 154 28, 156 36 L 158 58 L 115 58 Z" fill="#FF5A00" stroke="#ff7a29" stroke-width="1.5"/>
+                <polygon points="122,27 138,27 148,38 122,38" fill="#08111D"/>
+                <rect x="145" y="44" width="10" height="5" rx="1" fill="#facc15"/>
+                <!-- Ruedas Camión -->
+                <circle cx="34" cy="59" r="10" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+                <circle cx="34" cy="59" r="4" fill="#38bdf8"/>
+                <circle cx="58" cy="59" r="10" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+                <circle cx="58" cy="59" r="4" fill="#38bdf8"/>
+                <circle cx="138" cy="59" r="10" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+                <circle cx="138" cy="59" r="4" fill="#38bdf8"/>
+              </g>
+            </svg>
+          `;
+
+          resModality.innerText = "Buque Ro-Ro (Roll-On / Roll-Off) o Plataforma Especial";
+          resCustoms.innerText = "Aduanas: Declaración vehicular SUNAT, emisión de DAM con partida de transporte de carga.";
+
+        } else {
+          // 3. MAQUINARIA PESADA (12 - 40+ TON) -> CONTENEDOR FLAT RACK SOBREDIMENSIONADO
+          simTitle.innerText = `VISTA TÉCNICA: CONTENEDOR FLAT RACK / CARGA PROYECTO (${weight.toFixed(1)} TON)`;
+          
+          svgContainer.innerHTML = `
+            <svg viewBox="0 0 400 120" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="95" x2="380" y2="95" stroke="#38bdf8" stroke-width="2"/>
+              <!-- Plataforma Flat Rack de Acero Reforzado sin Paredes ni Techo -->
+              <rect x="40" y="85" width="320" height="11" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" rx="2"/>
+              <rect x="40" y="45" width="10" height="40" fill="#38bdf8" opacity="0.7"/>
+              <rect x="350" y="45" width="10" height="40" fill="#38bdf8" opacity="0.7"/>
+              <text x="55" y="38" fill="#38bdf8" font-size="9" font-family="monospace">FLAT RACK 40' // CAPACIDAD HASTA 45 TONELADAS</text>
+
+              <!-- Silueta Maquinaria Pesada / Excavadora con Orugas -->
+              <g transform="translate(110, 30)">
+                <rect x="20" y="20" width="100" height="35" rx="4" fill="#FF5A00" />
+                <rect x="30" y="5" width="45" height="20" rx="3" fill="#0f172a" stroke="#FF5A00" stroke-width="2"/>
+                <rect x="15" y="50" width="115" height="15" rx="7" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+                <circle cx="35" cy="57" r="5" fill="#38bdf8"/>
+                <circle cx="65" cy="57" r="5" fill="#38bdf8"/>
+                <circle cx="95" cy="57" r="5" fill="#38bdf8"/>
+                <circle cx="118" cy="57" r="5" fill="#38bdf8"/>
+                <!-- Brazo Mecánico -->
+                <path d="M 115 30 L 150 10 L 175 35" fill="none" stroke="#FF5A00" stroke-width="5" stroke-linecap="round"/>
+                <!-- Cinchas / Cables de Trincaje de Alta Resistencia -->
+                <line x1="15" y1="45" x2="-20" y2="55" stroke="#facc15" stroke-width="1.5" stroke-dasharray="4,2"/>
+                <line x1="130" y1="45" x2="160" y2="55" stroke="#facc15" stroke-width="1.5" stroke-dasharray="4,2"/>
+              </g>
+            </svg>
+          `;
+
+          resModality.innerText = "Contenedor Flat Rack / Breakbulk (Carga Sobredimensionada)";
+          resCustoms.innerText = "Aduanas: Requiere reconocimiento físico en puerto (Aforo) y cuadrilla de estiba con grúa.";
+        }
+
+      } else {
+        volumeValLabel.innerText = `${volume} CBM`;
+        
+        let modality = "";
+        let boxesHtml = "";
+        let filledBoxes = Math.ceil((volume / 100) * 8);
+        if (filledBoxes < 1) filledBoxes = 1;
+
+        if (volume < 20) {
+          modality = "Carga Consolidada (LCL - Pago por CBM)";
+          simTitle.innerText = "VISTA TÉCNICA: LCL (COMPARTIENDO CONTENEDOR)";
+        } else if (volume < 55) {
+          modality = "Contenedor Exclusivo 20' ST (Hasta 33 CBM)";
+          simTitle.innerText = "VISTA TÉCNICA: CONTENEDOR 20' ST";
+        } else {
+          modality = "Contenedor Exclusivo 40' HQ (Hasta 76 CBM)";
+          simTitle.innerText = "VISTA TÉCNICA: CONTENEDOR 40' HIGH CUBE";
+        }
+
+        for (let i = 0; i < 8; i++) {
+          let opacity = i < filledBoxes ? "1" : "0.15";
+          let color = i < filledBoxes ? "#FF5A00" : "#334155";
+          let xPos = 45 + (i * 38);
+          boxesHtml += `<rect x="${xPos}" y="45" width="30" height="60" rx="3" fill="${color}" fill-opacity="0.3" stroke="${color}" stroke-width="2" opacity="${opacity}"/>`;
+        }
+
+        svgContainer.innerHTML = `
+          <svg viewBox="0 0 400 120" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <rect x="25" y="25" width="350" height="85" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+            <line x1="75" y1="25" x2="75" y2="110" stroke="#1e3a5f" stroke-width="1"/>
+            <line x1="125" y1="25" x2="125" y2="110" stroke="#1e3a5f" stroke-width="1"/>
+            <line x1="175" y1="25" x2="175" y2="110" stroke="#1e3a5f" stroke-width="1"/>
+            <line x1="225" y1="25" x2="225" y2="110" stroke="#1e3a5f" stroke-width="1"/>
+            <line x1="275" y1="25" x2="275" y2="110" stroke="#1e3a5f" stroke-width="1"/>
+            <line x1="325" y1="25" x2="325" y2="110" stroke="#1e3a5f" stroke-width="1"/>
+            ${boxesHtml}
+          </svg>
+        `;
+
+        resModality.innerText = modality;
+        resCustoms.innerText = "Aduanas: Despacho Anticipado para asegurar levante en 48 horas sin almacenaje.";
+      }
+    }
+
+    // 6. Enviar Diagnóstico a WhatsApp
+    function sendSimulationToWhatsApp() {
+      const originText = document.getElementById('originSelect').selectedOptions[0].text;
+      const portText = document.getElementById('portSelect').selectedOptions[0].text;
+      const weight = document.getElementById('weightSlider') ? document.getElementById('weightSlider').value : 1.8;
+      
+      let loadDesc = "";
+      if (currentCargoType === 'machinery') {
+        const typeLabel = currentVehicleClass === 'car' ? 'Automóvil / SUV' : currentVehicleClass === 'truck' ? 'Camión / Furgón' : 'Maquinaria Pesada';
+        loadDesc = `Vehículo/Maquinaria (${typeLabel} - ${weight} Toneladas)`;
+      } else {
+        loadDesc = `Cajas/Pallets (${document.getElementById('cargoSlider').value} CBM)`;
+      }
+
+      const modality = document.getElementById('res-modality').innerText;
+      const taxes = document.getElementById('res-taxes').innerText;
+      const perception = document.getElementById('res-perception').innerText;
+
+      const text = `Hola Makipura World, realicé una simulación de importación en su web:%0A- *Carga:* ${loadDesc}%0A- *Origen:* ${originText}%0A- *Puerto de Llegada:* ${portText}%0A- *Modalidad Sugerida:* ${modality}%0A- *Tributos Estimados SUNAT:* ${taxes} + Percepción: ${perception}%0A%0ASolicito una cotización formal All-In.`;
+      window.open(`https://wa.me/51999999999?text=${text}`, '_blank');
+    }
+
+    // 7. Manejo del Formulario Corporativo (Persistencia de Lead + WhatsApp)
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const company = document.getElementById('form-company').value;
+      const phone = document.getElementById('form-phone').value;
+      const transport = document.getElementById('form-transport').value;
+      const details = document.getElementById('form-details').value;
+
+      // Guardar lead localmente (para no perder el contacto comercial)
+      const lead = {
+        name, company, phone, transport, details, date: new Date().toISOString()
+      };
+      try {
+        const storedLeads = JSON.parse(localStorage.getItem('makipura_leads') || '[]');
+        storedLeads.push(lead);
+        localStorage.setItem('makipura_leads', JSON.stringify(storedLeads));
+      } catch(err) {
+        console.warn('Error guardando lead en storage local', err);
+      }
+
+      // Mostrar feedback visual
+      const banner = document.getElementById('form-success-banner');
+      banner.classList.remove('hidden');
+
+      setTimeout(() => {
+        const msg = `Hola Makipura World, solicito cotización corporativa:%0A*Nombre:* ${name}%0A*Empresa / RUC:* ${company}%0A*Teléfono:* ${phone}%0A*Vía / Modalidad:* ${transport}%0A*Detalles:* ${details}`;
+        window.open(`https://wa.me/51999999999?text=${encodeURIComponent(msg)}`, '_blank');
+      }, 1200);
+    }
+
+    // 8. Modales Legales
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
